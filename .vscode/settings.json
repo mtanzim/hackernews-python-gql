@@ -1,4 +1,11 @@
 {
-    "sqltools.connections": [],
-    "sqltools.useNodeRuntime": true
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder:hackernews-python-gql}/hackernews/db.sqlite3",
+            "driver": "SQLite",
+            "name": "hackernews",
+            "previewLimit": 50
+        }
+    ],
+    "sqltools.useNodeRuntime": false
 }

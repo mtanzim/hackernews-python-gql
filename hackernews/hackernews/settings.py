@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # After the default packages
     'graphene_django',
     'links',
 ]
@@ -50,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'hackernews.urls'
@@ -125,3 +125,10 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'hackernews.schema.schema',
 }
+
+'''python(path=“…/graphql-python/hackernews/hackernews/settings.py”) GRAPHENE = { ‘SCHEMA’: ‘hackernews.schema.schema’, ‘MIDDLEWARE’: [ ‘graphql_jwt.middleware.JSONWebTokenMiddleware’, ], } '''
+
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
